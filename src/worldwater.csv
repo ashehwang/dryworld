@@ -1,0 +1,152 @@
+Rank,Country,Score,Risk
+1,Qatar,4.97,Extremely High
+2,Israel,4.82,Extremely High
+3,Lebanon,4.82,Extremely High
+
+4	Iran	4.57	Extremely High
+5	Jordan	4.56	Extremely High
+6	Libya	4.55	Extremely High
+7	Kuwait	4.43	Extremely High
+8	Saudi Arabia	4.35	Extremely High
+9	Eritrea	4.33	Extremely High
+10	United Arab Emirates	4.26	Extremely High
+11	San Marino	4.14	Extremely High
+12	Bahrain	4.13	Extremely High
+13	India	4.12	Extremely High
+14	Pakistan	4.05	Extremely High
+15	Turkmenistan	4.04	Extremely High
+16	Oman	4.04	Extremely High
+17	Botswana	4.02	Extremely High
+18	Chile	3.98	High
+19	Cyprus	3.97	High
+20	Yemen	3.97	High
+21	Andorra	3.92	High
+22	Morocco	3.89	High
+23	Belgium	3.89	High
+24	Mexico	3.86	High
+25	Uzbekistan	3.82	High
+26	Greece	3.8	High
+27	Afghanistan	3.8	High
+28	Spain	3.74	High
+29	Algeria	3.69	High
+30	Tunisia	3.67	High
+31	Syria	3.64	High
+32	Turkey	3.56	High
+33	Albania	3.53	High
+34	Armenia	3.43	High
+35	Burkina Faso	3.42	High
+36	Djibouti	3.37	High
+37	Namibia	3.31	High
+38	Kyrgyzstan	3.31	High
+39	Niger	3.28	High
+40	Nepal	3.17	High
+41	Portugal	3.14	High
+42	Iraq	3.13	High
+43	Egypt	3.07	High
+44	Italy	3.01	High
+45	Thailand	2.98	Medium-High
+46	Azerbaijan	2.94	Medium-High
+47	Sudan	2.92	Medium-High
+48	South Africa	2.89	Medium-High
+49	Luxembourg	2.86	Medium-High
+50	Australia	2.67	Medium-High
+51	Tajikistan	2.65	Medium-High
+52	Macedonia	2.59	Medium-High
+53	South Korea	2.55	Medium-High
+54	Bulgaria	2.53	Medium-High
+55	Mongolia	2.51	Medium-High
+56	China	2.4	Medium-High
+57	Guatemala	2.36	Medium-High
+58	Estonia	2.26	Medium-High
+59	France	2.19	Medium-High
+60	Kazakhstan	2.16	Medium-High
+61	Mauritania	2.14	Medium-High
+62	Germany	2.14	Medium-High
+63	Lesotho	2.13	Medium-High
+64	Denmark	2.08	Medium-High
+65	Indonesia	2.07	Medium-High
+66	Peru	2.05	Medium-High
+67	Venezuela	2.03	Medium-High
+68	Cuba	2.02	Medium-High
+69	North Korea	1.95	Low-Medium
+70	Romania	1.85	Low-Medium
+71	United States	1.85	Low-Medium
+72	Zimbabwe	1.79	Low-Medium
+73	Dominican Republic	1.75	Low-Medium
+74	Haiti	1.74	Low-Medium
+75	Japan	1.66	Low-Medium
+76	Angola	1.66	Low-Medium
+77	Sri Lanka	1.66	Low-Medium
+78	El Salvador	1.66	Low-Medium
+79	Tanzania	1.63	Low-Medium
+80	Netherlands	1.61	Low-Medium
+81	Ecuador	1.59	Low-Medium
+82	Lithuania	1.59	Low-Medium
+83	Philippines	1.55	Low-Medium
+84	South Sudan	1.52	Low-Medium
+85	Ukraine	1.49	Low-Medium
+86	Poland	1.48	Low-Medium
+87	Chad	1.44	Low-Medium
+88	Senegal	1.44	Low-Medium
+89	United Kingdom	1.4	Low-Medium
+90	Georgia	1.39	Low-Medium
+91	Nigeria	1.39	Low-Medium
+92	Argentina	1.31	Low-Medium
+93	Czech Republic	1.29	Low-Medium
+94	Russia	1.22	Low-Medium
+95	Bolivia	1.15	Low-Medium
+96	Ethiopia	1.11	Low-Medium
+97	Bosnia and Herzegovina	1.1	Low-Medium
+98	Swaziland	1.08	Low-Medium
+99	Moldova	1.06	Low-Medium
+100	Somalia	1.01	Low-Medium
+101	Rwanda	0.99	Low
+102	Liechtenstein	0.99	Low
+103	Guinea-Bissau	0.98	Low
+104	Mozambique	0.98	Low
+105	Vietnam	0.94	Low
+106	Kenya	0.93	Low
+107	Costa Rica	0.92	Low
+108	Canada	0.88	Low
+109	Serbia	0.83	Low
+110	Zambia	0.81	Low
+111	Switzerland	0.8	Low
+112	Brazil	0.78	Low
+113	Hungary	0.77	Low
+114	Ghana	0.75	Low
+115	Belarus	0.75	Low
+116	Madagascar	0.69	Low
+117	Slovenia	0.66	Low
+118	Colombia	0.65	Low
+119	Myanmar	0.65	Low
+120	Belize	0.62	Low
+121	Montenegro	0.58	Low
+122	Malawi	0.56	Low
+123	Mali	0.55	Low
+124	Finland	0.54	Low
+125	Slovakia	0.5	Low
+126	Ireland	0.46	Low
+127	Sweden	0.44	Low
+128	Bangladesh	0.43	Low
+129	Cambodia	0.42	Low
+130	Burundi	0.42	Low
+131	Latvia	0.38	Low
+132	Malaysia	0.28	Low
+133	Honduras	0.27	Low
+134	Austria	0.27	Low
+135	Uganda	0.26	Low
+136	Panama	0.23	Low
+137	Nicaragua	0.21	Low
+138	Guinea	0.19	Low
+139	Benin,	0.18	Low
+140	Croatia	0.18	Low
+141	Papua New Guinea	0.06	Low
+142	New Zealand	0.05	Low
+143	Democratic Republic of the Congo	0.04	Low
+144	Côte d'Ivoire	0.04	Low
+145	Cameroon	0.04	Low
+146	Gambia	0.04	Low
+147	Laos	0.03	Low
+148	Central African Republic	0.03	Low
+149	Sierra Leone	0.01	Low
+150	Paraguay	0.01	Low

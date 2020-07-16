@@ -1,0 +1,25 @@
+body, head, header, main, nav, article, p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    background: transparent;
+    font-family: sans-serif;
+}
+
+.country {
+    /* fill: lightgreen; */
+    stroke: black;
+    stroke-opacity: 0.4;
+}
+
+.country:hover {
+    fill: red;
+}
+.sphere {
+    fill: lightblue;
+}
+
+.world-map {
+    background-color: darkblue;
+}
