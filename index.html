@@ -12,16 +12,27 @@
     <script src="https://d3js.org/d3-array.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-    <script>
+    <!-- <script>
         var aitoff = d3.geoAitoff();
-    </script>
+    </script> -->
 </head>
 
 <body>
-    <div class=world-map>
-        <svg width="2800" height="500"></svg>
+    <div class="world-map">
+        <svg class="dry-map" width="960" height="500"></svg>
     </div>
-    this is body
+    <div class="flex">
+        <div>
+            <h1>The World is at Risk for Severe Water Depletion!</h1>
+            <p>According to World Resource Institute, nearly 1.8 billion people in seventeen countries - which is a quarter of the world’s population - are steering towards a
+            water crisis with the potential of severe shortages in the next few years. We are already facing its impact from unprecedended heat waves and monsoon delays. </p>
+        </div>
+        <div class="bar-charts">
+            <svg class="water-bars" width="500" height="500"></svg>
+        </div>
+    </div>
+
+
     <script src="main.js"></script>
 </body>
 

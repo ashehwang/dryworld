@@ -1,0 +1,29 @@
+action,water,filter
+toilet (per flush), 6,flush
+low-flow toilet(per flush), 1.3,flush
+shower (per minute), 3.8,shower
+low-flow shower (per minute), 2.3,shower
+faucet (per minute), 5,faucet
+low-flow faucet (per minute), 1.5,faucet
+coffee, 37,drink
+tea, 9,drink
+water, 0.125,drink
+soda, 33,drink
+wine, 31,drink
+beer, 20,drink
+egg, 36,food
+apple, 18,food
+orange, 13,food
+potato, 7,food
+cereal, 22,food
+hamburger, 634,food
+salad, 31,food
+beef(/lb), 1500,food
+chicken, 287,food
+bread, 11,food
+dish washing (by hand), 20,dish
+dish washing (dishwasher), 4,dish
+washing machine, 40,wash
+(enery star) washing machine, 22,wash
+bath,35,bath
+no bath,0,bath

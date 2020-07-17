@@ -7,6 +7,10 @@ body, head, header, main, nav, article, p, h1, h2, h3, h4, h5, h6 {
     font-family: sans-serif;
 }
 
+body {
+    /* background-image: linear-gradient(white, #B3CDD1); */
+}
+
 .country {
     /* fill: lightgreen; */
     stroke: black;
@@ -14,12 +18,19 @@ body, head, header, main, nav, article, p, h1, h2, h3, h4, h5, h6 {
 }
 
 .country:hover {
-    fill: red;
+    fill: #214E34;
 }
 .sphere {
-    fill: lightblue;
+    fill: #5086B9;
 }
 
 .world-map {
-    background-color: darkblue;
+    background-image: linear-gradient(white, #B3CDD1);
+    background-image: linear-gradient(white, #8AAFD0);
+    display: flex;
+    justify-content: center;
+}
+
+path.sphere {
+    margin: auto;
 }
