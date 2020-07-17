@@ -20,19 +20,40 @@
 <body>
     <div class="world-map">
         <svg class="dry-map" width="960" height="500"></svg>
+        <div class="map-label">
+            <div class="label-title">Overall Water Risk</div>
+            <div class="map-labels">
+                <div class="label-color-1"></div> Low
+            </div>
+            <div class="map-labels">
+                <div class="label-color-2"></div> Low-Medium
+            </div>
+            <div class="map-labels">
+                <div class="label-color-3"></div> Medium-High
+            </div>
+            <div class="map-labels">
+                <div class="label-color-4"></div> High
+            </div>
+            <div class="map-labels">
+                <div class="label-color-5"></div> Extremely High
+            </div>
+        </div>
     </div>
     <div class="flex">
-        <div>
-            <h1>The World is at Risk for Severe Water Depletion!</h1>
-            <br>
-            <p>According to World Resource Institute, nearly 1.8 billion people in seventeen countries - which is a quarter of the world’s population - are steering towards a
-            water crisis with the potential of severe shortages in the next few years. We are already facing its impact from unprecedended heat waves and monsoon delays. </p>
-            <br>
-            <p>See what you can do to help protect the world for future generations to enjoy.</p>
+        <div class="left">
+            <h1>The World is at Risk for Severe Water Depletion</h1>
+            <div class="description">
+                <p>According to World Resource Institute, nearly 1.8 billion people in seventeen countries - which is a quarter of the world’s population - are steering towards a
+                water crisis with the potential of severe shortages in the next few years. We are already facing its impact from unprecedended heat waves and monsoon delays. It takes little drops of water to add up to a tank. Your small effort can make a change for the better.</p>
+                <br>
+                <p>See what you can do to help protect the world for future generations to enjoy.</p>
+            </div>
             <div class="flex2">
                 <div class="questions">
-                    <h3>Q: What can I do in my household to save water?</h3>
-                    <h4>A: Choose what changes you're interested in making!</h4>
+                    <div>
+                        <h3><strong>Q:</strong> What can I do in my household to save water?</h3>
+                        <h4><strong>A:</strong> Choose what changes you're interested in making!</h4>
+                    </div>
                     <div class="filter-form">
                         <label>
                             <input type="radio" value="flush" name="filter" checked>
@@ -60,8 +81,10 @@
                     </div>
                 </div>
                 <div class="questions">
-                    <h3>Q: Are there ways my groceries can help make an impact?</h3>
-                    <h4>A: Of course! What purchase do you think helps save water?</h4>
+                    <div>
+                        <h3><strong>Q:</strong> Are there ways my groceries can help make an impact?</h3>
+                        <h4><strong>A: </strong>Of course! What purchase do you think helps save water?</h4>
+                    </div>
                     <div class="filter-form">
                         <label>
                             <input type="radio" value="food" name="filter">
@@ -106,8 +129,10 @@
                     </div>
                 </div>
                 <div class="questions">
-                    <h3>Q: Hmm.. How about drinks?</h3>
-                    <h4>A: Sure, pick a drink!</h4>
+                    <div>
+                        <h3><strong>Q: </strong>Hmm.. How about drinks?</h3>
+                        <h4><strong>A:</strong> Sure, pick a drink and see how you can make an impact!</h4>
+                    </div>
                     <div class="filter-form">
                         <label>
                             <input type="radio" value="drink" name="filter">
@@ -138,7 +163,7 @@
             </div>
         </div>
         <div class="bar-charts">
-            <svg class="water-bars" width="500" height="500"></svg>
+            <svg class="water-bars" width="550" height="500"></svg>
         </div>
     </div>
 

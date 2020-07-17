@@ -20,7 +20,8 @@ const colorValue = d => d.properties.risk
 Promise.all([
     // d3.tsv('https://unpkg.com/world-atlas@1.1.4/world/110m.tsv'),
     // d3.tsv('./src/waterdata.tsv'),
-    d3.tsv('./src/waterdata2.tsv'),
+    d3.tsv('./src/fullwaterdata.tsv'),
+    // d3.tsv('./src/finalwaterdata.tsv'),
     d3.json('https://unpkg.com/world-atlas@1.1.4/world/110m.json')
 ]).then(([tsvData, topoJSONdata]) => {
         const rowById = {};
@@ -45,15 +46,15 @@ Promise.all([
 
         const myColorScale = d3.scaleOrdinal()
             .domain(["", "Low", "Low-Medium", "Medium-High", "High", "Extremely High"])
-            .range(['grey', 'yellow', 'green', 'blue', 'purple', 'red'])
+            .range(['white', '#ffff99', '#ffe600', '#ff9900', '#ff1900', '#9a0500'])
 
         g.selectAll('path')
             .data(countries.features)
             .enter().append('path')
                 .attr('class', 'country')
                 .attr('d', pathGenerator)
-                .attr('fill', d => colorScale(colorValue(d)))
-                // .attr('fill', d => myColorScale(colorValue(d)))
+                // .attr('fill', d => colorScale(colorValue(d)))
+                .attr('fill', d => myColorScale(colorValue(d)))
             .append('title')
                 .text(d => d.properties.name + ': ' + colorValue(d) + ' Risk')
 })

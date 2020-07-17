@@ -18,7 +18,7 @@ body {
 }
 
 .country:hover {
-    fill: #214E34;
+    fill: #183A26;
 }
 .sphere {
     fill: #5086B9;
@@ -29,20 +29,112 @@ body {
     background-image: linear-gradient(white, #8AAFD0);
     display: flex;
     justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 path.sphere {
     margin: auto;
 }
 
-.flex, .flex2 {
+.flex, .flex2, .map-labels {
     display: flex;
     justify-content: space-between;
-    /* margin: 15px 50px 0 50px; */
+}
+
+.map-labels {
+    align-items: center;
 }
 
 rect {
     /* fill: lightblue; */
     fill: transparent;
     opacity: 0.9;
+}
+
+/*#ffff99 ffe600 ff9900 ff1900 9a0500*/
+
+.map-label {
+    position: absolute;
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid lightgrey;
+    bottom: 20px;
+    left: 7%;
+    font-size: 12px;
+}
+
+.label-color-1, .label-color-2, .label-color-3, .label-color-4, .label-color-5 {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-top: 5px;
+}
+
+.label-color-1 {
+    background-color: #ffff99;
+}
+.label-color-2 {
+    background-color: #ffe600;
+}
+.label-color-3 {
+    background-color: #ff9900;
+}
+.label-color-4 {
+    background-color: #ff1900;
+}
+.label-color-5 {
+    background-color: #9a0500;
+}
+
+.label-title {
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.left {
+    /* background-color: rosybrown; */
+    width: 50%;
+    height: 500px;
+    margin-left: 7%;
+    font-size: 12px;
+}
+
+.left > h1 {
+    font-size: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.description {
+    margin: 10px 0;
+}
+
+.questions {
+    width: 33%;
+    height: 320px;
+    margin: 0px 10px;
+    background-color: #99B9D6;
+    background-image: linear-gradient(white,#99B9D6);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid lightgrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bar-charts {
+    margin-right: 7%;
+}
+
+h3, h4 {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.bar-charts {
+    background-color: skyblue;
 }
