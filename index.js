@@ -43,12 +43,17 @@ Promise.all([
             
         console.log(colorScale.domain().sort())
 
+        const myColorScale = d3.scaleOrdinal()
+            .domain(["", "Low", "Low-Medium", "Medium-High", "High", "Extremely High"])
+            .range(['grey', 'yellow', 'green', 'blue', 'purple', 'red'])
+
         g.selectAll('path')
             .data(countries.features)
             .enter().append('path')
                 .attr('class', 'country')
                 .attr('d', pathGenerator)
                 .attr('fill', d => colorScale(colorValue(d)))
+                // .attr('fill', d => myColorScale(colorValue(d)))
             .append('title')
                 .text(d => d.properties.name + ': ' + colorValue(d) + ' Risk')
 })
@@ -115,5 +120,25 @@ d3.csv('./src/data.csv').then(data => {
     data.forEach(d => {
         d.water = +d.water;
     });
-    render(data, "food");
+
+    let selector = "flush";
+    let myFilter = document.getElementsByName('filter');
+    console.log(myFilter)
+
+    render(data, selector);
+
+    myFilter.forEach( node => node.addEventListener('change', () => {
+        if(node.checked) selector = node.value;
+        let target = document.querySelector('.water-bars')
+        target.innerHTML = ""
+        render(data, selector)
+        d3.selectAll('rect')
+            .transition()
+            .duration(2000)
+            .style('fill', 'lightblue')
+        // console.log(node)
+    }));
+
+    console.log(selector)
+
 });

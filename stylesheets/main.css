@@ -34,3 +34,15 @@ body {
 path.sphere {
     margin: auto;
 }
+
+.flex, .flex2 {
+    display: flex;
+    justify-content: space-between;
+    /* margin: 15px 50px 0 50px; */
+}
+
+rect {
+    /* fill: lightblue; */
+    fill: transparent;
+    opacity: 0.9;
+}
