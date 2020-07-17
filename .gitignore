@@ -1,14 +1,15 @@
-# Ignore bundler config.
-/.bundle
+# # Ignore bundler config.
+# /.bundle
  
-# Ignore all logfiles and tempfiles.
-/log/*
-!/log/.keep
-/tmp
+# # Ignore all logfiles and tempfiles.
+# /log/*
+# !/log/.keep
+# /tmp
  
-# Ignore node modules
+# # Ignore node modules
 node_modules/
  
-# Ignore bundle
-main.js
-main.js.map
+# # Ignore bundle
+# main.js
+# main.js.map
+node_modules
