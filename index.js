@@ -18,10 +18,7 @@ const colorScale = d3.scaleOrdinal();
 const colorValue = d => d.properties.risk
 
 Promise.all([
-    // d3.tsv('https://unpkg.com/world-atlas@1.1.4/world/110m.tsv'),
-    // d3.tsv('./src/waterdata.tsv'),
     d3.tsv('./src/fullwaterdata.tsv'),
-    // d3.tsv('./src/finalwaterdata.tsv'),
     d3.json('https://unpkg.com/world-atlas@1.1.4/world/110m.json')
 ]).then(([tsvData, topoJSONdata]) => {
         const rowById = {};
@@ -60,7 +57,6 @@ Promise.all([
 })
 
 const svg2 = d3.select('svg.water-bars')
-// svg2.style('background-color', 'red')
 
 const width = +svg2.attr("width");
 const height = +svg2.attr("height");
@@ -136,7 +132,8 @@ d3.csv('./src/data.csv').then(data => {
         d3.selectAll('rect')
             .transition()
             .duration(2000)
-            .style('fill', 'lightblue')
+            .style('fill', '#9AB9D5')
+            // .style('fill', 'url(#gradient)')
         // console.log(node)
     }));
 

@@ -163,7 +163,15 @@
             </div>
         </div>
         <div class="bar-charts">
-            <svg class="water-bars" width="550" height="500"></svg>
+            <div class="bar-label">Gallons</div>
+            <svg class="water-bars" width="550" height="500">
+                <defs>
+                    <linearGradient id="waterbar-gradient">
+                        <stop offset="5%" stop-color="#E2EBF3" />
+                        <stop offset="95%" stop-color="#5F8FBF" />
+                    </linearGradient>
+                </defs>
+            </svg>
         </div>
     </div>
 

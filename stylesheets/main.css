@@ -136,5 +136,42 @@ h3, h4 {
 }
 
 .bar-charts {
-    background-color: skyblue;
+    position: relative;
+    /* background-color: skyblue; */
 }
+
+.bar-label {
+    position: absolute;
+    top: 0px;
+    left: 38px;
+    font-size: 11px;
+}
+/* 
+@keyframes hydrangea {
+  0% {background: url("../images/a01.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  20% {background: url("../images/a02.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  30% {background: url("../images/a03.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  42% {background: url("../images/a04.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  54% {background: url("../images/a05.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  70% {background: url("../images/a06.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+  100% {background: url("../images/a07.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+}
+
+.hydrangea {
+  background: url("../images/a07.jpg");
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center bottom;
+  width: auto;
+  height: 100vh;
+  text-align: center;
+  padding-top: 20px;
+  // transition: background 4s;
+}
+
+.animated {
+  animation-name: hydrangea;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+} */

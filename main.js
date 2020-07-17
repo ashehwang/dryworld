@@ -121,10 +121,7 @@ var colorValue = function colorValue(d) {
   return d.properties.risk;
 };
 
-Promise.all([// d3.tsv('https://unpkg.com/world-atlas@1.1.4/world/110m.tsv'),
-// d3.tsv('./src/waterdata.tsv'),
-d3.tsv('./src/fullwaterdata.tsv'), // d3.tsv('./src/finalwaterdata.tsv'),
-d3.json('https://unpkg.com/world-atlas@1.1.4/world/110m.json')]).then(function (_ref) {
+Promise.all([d3.tsv('./src/fullwaterdata.tsv'), d3.json('https://unpkg.com/world-atlas@1.1.4/world/110m.json')]).then(function (_ref) {
   var _ref2 = _slicedToArray(_ref, 2),
       tsvData = _ref2[0],
       topoJSONdata = _ref2[1];
@@ -149,8 +146,7 @@ d3.json('https://unpkg.com/world-atlas@1.1.4/world/110m.json')]).then(function (
     return d.properties.name + ': ' + colorValue(d) + ' Risk';
   });
 });
-var svg2 = d3.select('svg.water-bars'); // svg2.style('background-color', 'red')
-
+var svg2 = d3.select('svg.water-bars');
 var width = +svg2.attr("width");
 var height = +svg2.attr("height");
 
@@ -218,7 +214,8 @@ d3.csv('./src/data.csv').then(function (data) {
       var target = document.querySelector('.water-bars');
       target.innerHTML = "";
       render(data, selector);
-      d3.selectAll('rect').transition().duration(2000).style('fill', 'lightblue'); // console.log(node)
+      d3.selectAll('rect').transition().duration(2000).style('fill', '#9AB9D5'); // .style('fill', 'url(#gradient)')
+      // console.log(node)
     });
   });
   console.log(selector);
