@@ -139,7 +139,7 @@ d3.csv('./src/data.csv').then(data => {
     // const pieColors = d3.scaleOrdinal(d3.schemePastel1)
     const mypieColorScale = d3.scaleOrdinal()
         .domain([30, 68, 0.4, 1.6])
-        .range(['#ebf1f7', '#cfddec', 'blue', '#a5c0db'])
+        .range(['#F6F4F5', '#cfddec', 'blue', '#a5c0db'])
         // .range(['#ebf1f7', '#cfddec', '#5185b9', '#a5c0db'])
 
     const width3 = +svg3.attr("width");
@@ -188,7 +188,7 @@ const render2 = (data) => {
     const xScale = d3.scaleBand()
         .domain(data.map(xValue))
         .range([0, innerWidth])
-        .padding(0.1);
+        .padding(0.2);
 
     const yScale = d3.scaleLinear()
         .domain([0, d3.max(data, yValue)])

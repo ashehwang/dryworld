@@ -73,6 +73,15 @@ rect {
     margin-top: 5px;
 }
 
+.label-color-6, .label-color-7, .label-color-8, .label-color-9 {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
 .label-color-1 {
     background-color: #ffff99;
 }
@@ -89,6 +98,21 @@ rect {
     background-color: #9a0500;
 }
 
+.label-color-6 {
+    background-color: #ebf1f7;
+    background-color: #F6F4F5;
+}
+.label-color-7 {
+    background-color: #cfddec;
+}
+.label-color-8 {
+    background-color: #a5c0db;
+}
+.label-color-9 {
+    background-color: blue;
+    /* background-color: #5185b9; */
+}
+
 .label-title {
     font-size: 14px;
     font-weight: 550;
@@ -102,7 +126,7 @@ rect {
     font-size: 12px;
 }
 
-.left > h1 {
+.left > h1, .left2 > h1 {
     font-size: 25px;
     text-align: center;
     font-weight: 600;
@@ -149,39 +173,57 @@ h3, h4 {
 
 .pie-chart{
     display: flex;
+    position: relative;
 }
 
-/* text {
-    font-size: 16px;
-    font-weight: 600;
-    fill: white;
-} */
-/* 
-@keyframes hydrangea {
-  0% {background: url("../images/a01.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
-  20% {background: url("../images/a02.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
-  30% {background: url("../images/a03.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
-  42% {background: url("../images/a04.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
-  54% {background: url("../images/a05.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
-  70% {background: url("../images/a06.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
-  100% {background: url("../images/a07.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
+.pie-chart .map-label {
+    position: absolute;
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid lightgrey;
+    bottom: 70px;
+    left: 7%;
+    font-size: 12px;
 }
 
-.hydrangea {
-  background: url("../images/a07.jpg");
-  background-size: contain; 
-  background-repeat: no-repeat; 
-  background-position: center bottom;
-  width: auto;
-  height: 100vh;
-  text-align: center;
-  padding-top: 20px;
-  // transition: background 4s;
+.pie-chart {
+    margin: 40px auto 20px auto;
 }
 
-.animated {
-  animation-name: hydrangea;
-  animation-duration: 8s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-} */
+.pie {
+    margin-left: 7%;
+}
+
+.left2 {
+    /* background-color: rosybrown; */
+    width: 50%;
+    height: 500px;
+    margin-right: 7%;
+    font-size: 12px;
+}
+
+.waterwater-container {
+    position: relative;
+    margin: 0 auto;
+    width: 1160px;
+}
+
+.map-label2 {
+    position: absolute;
+    top: 20px;
+    width: 80px;
+    left: -30px;
+    font-size: 12px;
+}
+
+.map-label3 {
+    position: absolute;
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid lightgrey;
+    top: 20px;
+    right: 7%;
+    font-size: 12px;
+}

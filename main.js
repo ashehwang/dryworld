@@ -230,7 +230,7 @@ d3.csv('./src/data.csv').then(function (data) {
     number: 0.4
   }]; // const pieColors = d3.scaleOrdinal(d3.schemePastel1)
 
-  var mypieColorScale = d3.scaleOrdinal().domain([30, 68, 0.4, 1.6]).range(['#ebf1f7', '#cfddec', 'blue', '#a5c0db']); // .range(['#ebf1f7', '#cfddec', '#5185b9', '#a5c0db'])
+  var mypieColorScale = d3.scaleOrdinal().domain([30, 68, 0.4, 1.6]).range(['#F6F4F5', '#cfddec', 'blue', '#a5c0db']); // .range(['#ebf1f7', '#cfddec', '#5185b9', '#a5c0db'])
 
   var width3 = +svg3.attr("width");
   var height3 = +svg3.attr("height");
@@ -283,7 +283,7 @@ var render2 = function render2(data) {
     return d.country;
   };
 
-  var xScale = d3.scaleBand().domain(data.map(xValue)).range([0, innerWidth]).padding(0.1);
+  var xScale = d3.scaleBand().domain(data.map(xValue)).range([0, innerWidth]).padding(0.2);
   var yScale = d3.scaleLinear().domain([0, d3.max(data, yValue)]).range([innerHeight, 0]);
   var g = svg4.append('g').attr('transform', "translate(".concat(margin4.left, ", ").concat(margin4.top, ")"));
   g.append('g').call(d3.axisLeft(yScale));
