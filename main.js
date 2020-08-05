@@ -130,14 +130,12 @@ Promise.all([d3.tsv('./src/fullwaterdata.tsv'), d3.json('https://unpkg.com/world
   tsvData.forEach(function (d) {
     rowById[d.iso_n3] = d;
   });
-  console.log(topoJSONdata);
   var countries = topojson.feature(topoJSONdata, topoJSONdata.objects.countries);
   countries.features.forEach(function (d) {
     Object.assign(d.properties, rowById[d.id]);
   });
   colorScale.domain(countries.features.map(colorValue)).domain(colorScale.domain().sort().reverse()).range(d3.schemeYlOrRd[colorScale.domain().length]); // .range(d3.schemeYlGn[colorScale.domain().length])
 
-  console.log(colorScale.domain().sort());
   var myColorScale = d3.scaleOrdinal().domain(["", "Low", "Low-Medium", "Medium-High", "High", "Extremely High"]).range(['white', '#ffff99', '#ffe600', '#ff9900', '#ff1900', '#9a0500']);
   g.selectAll('path').data(countries.features).enter().append('path').attr('class', 'country').attr('d', pathGenerator) // .attr('fill', d => colorScale(colorValue(d)))
   .attr('fill', function (d) {
@@ -173,8 +171,8 @@ var render = function render(data, filter) {
   });
   var xScale = d3.scaleBand() // .domain(data.filter( d => d.filter === filter).map(xValue))
   // .domain(data.map(xValue))
-  .domain(filteredData.map(xValue)).range([0, innerWidth]).padding(0.1);
-  console.log(xScale.domain());
+  .domain(filteredData.map(xValue)).range([0, innerWidth]).padding(0.1); // console.log(xScale.domain())
+
   var yScale = d3.scaleLinear().domain([0, d3.max(filteredData, yValue)]) // .domain([0, d3.max(data, yValue)])
   // .domain([0, data.filter( d => d.filter === filter).d3.max(yValue)])
   .range([innerHeight, 0]);
@@ -206,7 +204,6 @@ d3.csv('./src/data.csv').then(function (data) {
   });
   var selector = "flush";
   var myFilter = document.getElementsByName('filter');
-  console.log(myFilter);
   render(data, selector);
   myFilter.forEach(function (node) {
     return node.addEventListener('change', function () {
@@ -215,10 +212,98 @@ d3.csv('./src/data.csv').then(function (data) {
       target.innerHTML = "";
       render(data, selector);
       d3.selectAll('rect').transition().duration(2000).style('fill', '#9AB9D5'); // .style('fill', 'url(#gradient)')
-      // console.log(node)
     });
   });
-  console.log(selector);
+  var svg3 = d3.select('svg.pie'); // .style("background-color", "pink")
+
+  var details = [{
+    water: "Earth covered with Land",
+    number: 30
+  }, {
+    water: "Earth covered with Water",
+    number: 68
+  }, {
+    water: "Water Locked in Glaciers",
+    number: 1.6
+  }, {
+    water: "Fresh Water for Us to User",
+    number: 0.4
+  }]; // const pieColors = d3.scaleOrdinal(d3.schemePastel1)
+
+  var mypieColorScale = d3.scaleOrdinal().domain([30, 68, 0.4, 1.6]).range(['#ebf1f7', '#cfddec', 'blue', '#a5c0db']); // .range(['#ebf1f7', '#cfddec', '#5185b9', '#a5c0db'])
+
+  var width3 = +svg3.attr("width");
+  var height3 = +svg3.attr("height");
+  var data3 = d3.pie().sort(null).value(function (d) {
+    return d.number;
+  })(details); // console.log(data3)
+
+  var segments = d3.arc().innerRadius(0).outerRadius(200).padAngle(0.05).padRadius(50);
+  var sections = svg3.append("g").attr("transform", "translate(250, 250)").selectAll("path").data(data3);
+  sections.enter().append("path").attr("d", segments).attr("fill", function (d) {
+    return mypieColorScale(d.data.number);
+  });
+  var content = d3.select("g").selectAll("text").data(data3);
+  content.enter().append('text').each(function (d) {
+    var center = segments.centroid(d);
+    d3.select(this).attr("x", center[0]).attr("y", center[1]); // .text(d.data.water);
+  });
+  var legends = svg3.append('g').attr('transform', 'translate(500, 300)').selectAll(".legends").data(data3);
+  var legend = legends.enter().append('g').classed("legends", true).attr("transform", function (d, i) {
+    return "translate(0," + (i + 1) * 30 + ")";
+  });
+  legend.append("rect").attr("width", 20).attr("height", 20).attr("fill", function (d) {
+    return colors3(d.data.number);
+  });
+  legend.append("text").classed("label", true).text(function (d) {
+    return d.data.water;
+  }).attr("fill", function (d) {
+    return colors3(d.data.number);
+  }).attr("x", 30).attr("y", 20);
+});
+var svg4 = d3.select('svg.waterwater');
+var width4 = +svg4.attr("width");
+var height4 = +svg4.attr("height");
+
+var render2 = function render2(data) {
+  var margin4 = {
+    top: 20,
+    right: 20,
+    bottom: 20,
+    left: 80
+  };
+  var innerHeight = height4 - margin4.top - margin4.bottom;
+  var innerWidth = width4 - margin4.left - margin4.right;
+
+  var yValue = function yValue(d) {
+    return d.water;
+  };
+
+  var xValue = function xValue(d) {
+    return d.country;
+  };
+
+  var xScale = d3.scaleBand().domain(data.map(xValue)).range([0, innerWidth]).padding(0.1);
+  var yScale = d3.scaleLinear().domain([0, d3.max(data, yValue)]).range([innerHeight, 0]);
+  var g = svg4.append('g').attr('transform', "translate(".concat(margin4.left, ", ").concat(margin4.top, ")"));
+  g.append('g').call(d3.axisLeft(yScale));
+  g.append("g").call(d3.axisBottom(xScale)).attr("transform", "translate(0, ".concat(innerHeight, ")"));
+  g.selectAll('rect').data(data).enter().append('rect').attr('class', 'bar2').attr('x', function (d) {
+    return xScale(d.country);
+  }).attr('y', function (d) {
+    return yScale(d.water);
+  }).attr('width', xScale.bandwidth()).attr('height', function (d) {
+    return innerHeight - yScale(d.water);
+  });
+};
+
+d3.csv('./src/data2.csv').then(function (data) {
+  data.forEach(function (d) {
+    d.water = +d.water;
+  });
+  console.log(data);
+  render2(data);
+  d3.selectAll('.bar2').style('fill', '#9AB9D5');
 });
 
 /***/ })

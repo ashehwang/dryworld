@@ -146,6 +146,16 @@ h3, h4 {
     left: 38px;
     font-size: 11px;
 }
+
+.pie-chart{
+    display: flex;
+}
+
+/* text {
+    font-size: 16px;
+    font-weight: 600;
+    fill: white;
+} */
 /* 
 @keyframes hydrangea {
   0% {background: url("../images/a01.jpg"); background-size: contain; background-repeat: no-repeat; background-position: center bottom;}
