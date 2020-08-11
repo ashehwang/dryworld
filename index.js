@@ -106,6 +106,7 @@ const render = (data, filter) => {
     g.selectAll('rect').data(filteredData)
         .enter().append('rect')
         .attr('class', 'bar')
+        .attr('id', d => d.id)
         .attr('x', d => xScale(d.action))
         .attr('y', d => yScale(d.water))
         .attr('width', xScale.bandwidth())
@@ -118,12 +119,16 @@ d3.csv('./src/data.csv').then(data => {
     });
 
     let selector = "flush";
+    let highlight = "lflush"
+
     let myFilter = document.getElementsByName('filter');
 
     render(data, selector);
 
     myFilter.forEach( node => node.addEventListener('change', () => {
         if(node.checked) selector = node.value;
+        if(node.checked) highlight = node.id;
+
         let target = document.querySelector('.water-bars')
         target.innerHTML = ""
         render(data, selector)
@@ -131,7 +136,17 @@ d3.csv('./src/data.csv').then(data => {
             .transition()
             .duration(2000)
             .style('fill', '#9AB9D5')
+            .style('opacity', 0.8)
             // .style('fill', 'url(#gradient)')
+        
+        let myID = document.getElementById(`${highlight}`);
+        console.log(myID)
+        // if(node.id === "egg")
+        d3.select(`rect#${highlight}`)
+            .transition()
+            .duration(2000)
+            .style('fill', 'red')
+            .style('opacity', 0.8)
     }));
 
     const svg3 = d3.select('svg.pie')

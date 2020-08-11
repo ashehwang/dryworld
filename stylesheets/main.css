@@ -48,8 +48,9 @@ path.sphere {
 
 rect {
     /* fill: lightblue; */
-    fill: transparent;
-    opacity: 0.9;
+    fill: #9AB9D5;
+    /* fill: transparent; */
+    opacity: 0.1;
 }
 
 /*#ffff99 ffe600 ff9900 ff1900 9a0500*/

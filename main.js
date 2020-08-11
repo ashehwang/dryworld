@@ -190,7 +190,9 @@ var render = function render(data, filter) {
   // .selectAll('.domain, .tick line')
   // .remove();
 
-  g.selectAll('rect').data(filteredData).enter().append('rect').attr('class', 'bar').attr('x', function (d) {
+  g.selectAll('rect').data(filteredData).enter().append('rect').attr('class', 'bar').attr('id', function (d) {
+    return d.id;
+  }).attr('x', function (d) {
     return xScale(d.action);
   }).attr('y', function (d) {
     return yScale(d.water);
@@ -204,15 +206,22 @@ d3.csv('./src/data.csv').then(function (data) {
     d.water = +d.water;
   });
   var selector = "flush";
+  var highlight = "lflush";
   var myFilter = document.getElementsByName('filter');
   render(data, selector);
   myFilter.forEach(function (node) {
     return node.addEventListener('change', function () {
       if (node.checked) selector = node.value;
+      if (node.checked) highlight = node.id;
       var target = document.querySelector('.water-bars');
       target.innerHTML = "";
       render(data, selector);
-      d3.selectAll('rect').transition().duration(2000).style('fill', '#9AB9D5'); // .style('fill', 'url(#gradient)')
+      d3.selectAll('rect').transition().duration(2000).style('fill', '#9AB9D5').style('opacity', 0.8); // .style('fill', 'url(#gradient)')
+
+      var myID = document.getElementById("".concat(highlight));
+      console.log(myID); // if(node.id === "egg")
+
+      d3.select("rect#".concat(highlight)).transition().duration(2000).style('fill', 'red').style('opacity', 0.8);
     });
   });
   var svg3 = d3.select('svg.pie'); // .style("background-color", "pink")
