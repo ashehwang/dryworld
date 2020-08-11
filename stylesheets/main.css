@@ -46,11 +46,16 @@ path.sphere {
     align-items: center;
 }
 
-rect {
+rect.bar {
     /* fill: lightblue; */
     fill: #9AB9D5;
     /* fill: transparent; */
-    opacity: 0.1;
+    opacity: 0;
+}
+
+rect.bar2 {
+    /* fill: #9AB9D5; */
+    opacity: 0.9;
 }
 
 /*#ffff99 ffe600 ff9900 ff1900 9a0500*/
@@ -237,4 +242,16 @@ footer {
 }
 a:visited, a {
     color: lightblue;
+}
+
+div.tooltip-donut, div.tooltip-waterwater {
+    position: absolute;
+    text-align: center;
+    padding: 5px 8px;
+    background: #FFFFFF;
+    color: #313639;
+    border: 1px solid lightgrey;
+    border-radius: 7px;
+    pointer-events: none;
+    font-size: 12px;
 }

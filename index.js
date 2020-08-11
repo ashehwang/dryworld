@@ -8,7 +8,6 @@ const g = svg.append('g')
 
 g.append('path')
     .attr('class', 'sphere')
-    // .attr('d', pathGenerator({type: 'Sphere'}))
 
 svg.call(d3.zoom().on('zoom', () => {
     g.attr('transform', d3.event.transform)
@@ -151,8 +150,11 @@ d3.csv('./src/data.csv').then(data => {
 
     const svg3 = d3.select('svg.pie')
                     // .style("background-color", "pink")
+    var div = d3.select('body').append("div")
+        .attr("class", "tooltip-donut")
+        .style("opacity", 0);
     
-    const details = [{ water: "Earth covered with Land", number: 30 }, { water: "Earth covered with Water", number: 68 }, { water: "Water Locked in Glaciers", number: 1.6 }, { water: "Fresh Water for Us to User", number: 0.4 }]
+    const details = [{ water: "Earth Covered With Land", number: 30 }, { water: "Earth Covered With Salt Water", number: 68 }, { water: "Water Locked in Glaciers", number: 1.6 }, { water: "Fresh Water for Us to Use", number: 0.4 }]
     // const pieColors = d3.scaleOrdinal(d3.schemePastel1)
     const mypieColorScale = d3.scaleOrdinal()
         .domain([30, 68, 0.4, 1.6])
@@ -163,7 +165,6 @@ d3.csv('./src/data.csv').then(data => {
     // const height3 = +svg3.attr("height");
 
     const data3 = d3.pie().sort(null).value(function(d){return d.number;})(details);
-    // console.log(data3)
     var segments = d3.arc()
                     .innerRadius(0)
                     .outerRadius(200)
@@ -171,7 +172,34 @@ d3.csv('./src/data.csv').then(data => {
                     .padRadius(50);
     var sections = svg3.append("g").attr("transform", "translate(250, 250)")
                     .selectAll("path").data(data3)
-    sections.enter().append("path").attr("d", segments).attr("fill", function(d){return mypieColorScale(d.data.number)})
+    sections.enter().append("path").attr("d", segments)
+            .attr("fill", function(d){return mypieColorScale(d.data.number)})
+            .on('mouseover', function(d,i){
+                d3.select(this).transition()
+                .duration('1000')
+                .style('transform', "scale(1.03, 1.03)")
+                .attr('fill', 'red')
+
+                div.transition()
+                .duration('1000')
+                .style('opacity', 1)
+
+                let quote = d.data.water + ": " + d.data.number.toString() + "%"
+                
+                div.html(quote)
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 15) + "px");
+            })
+            .on('mouseout', function(d,i){
+                d3.select(this).transition()
+                .duration('100')
+                    .attr('fill', function (d) { return mypieColorScale(d.data.number) })
+                    .style('transform', "scale(1.0, 1.0)")
+
+                div.transition()
+                .duration('100')
+                .style('opacity', 0)
+            })
     var content = d3.select("g").selectAll("text").data(data3);
     content.enter().append('text').each(function(d){
         var center = segments.centroid(d);
@@ -183,7 +211,6 @@ d3.csv('./src/data.csv').then(data => {
                     .selectAll(".legends").data(data3);
     var legend = legends.enter().append('g').classed("legends", true).attr("transform", function(d,i){return "translate(0," +(i+1)*30 + ")";});
     legend.append("rect").attr("width", 20).attr("height", 20).attr("fill", function (d) { return mypieColorScale(d.data.number);});
-    // legend.append("rect").attr("width", 20).attr("height", 20).attr("fill", function(d){return colors3(d.data.number);});
     legend.append("text").classed("label", true).text(function(d){
         return d.data.water
     }).attr("fill", function (d) { return mypieColorScale(d.data.number);})
@@ -192,6 +219,10 @@ d3.csv('./src/data.csv').then(data => {
 });
 
 const svg4 = d3.select('svg.waterwater');
+
+var div2 = d3.select('body').append("div")
+    .attr("class", "tooltip-waterwater")
+    .style("opacity", 0);
 
 // const width4 = +svg4.attr("width");
 const width4 = 1160;
@@ -229,17 +260,42 @@ const render2 = (data) => {
         .attr('x', d => xScale(d.country))
         .attr('y', d => yScale(d.water))
         .attr('width', xScale.bandwidth())
-        .attr('height', d => innerHeight - yScale(d.water));
+        .attr('height', d => innerHeight - yScale(d.water))
+        .attr('fill', '#9AB9D5')
+        .on('mouseover', function (d, i) {
+            d3.select(this).transition()
+                .duration('1000')
+                .attr('fill', 'red')
+                // .style('transform', 'scale(1.01, 1.0)')
+                // .style('transform-origin', "50% 0%")
+
+            div2.transition()
+                .duration('1000')
+                .style('opacity', 1)
+            
+            let quote2 = d.country + ": " + d.water + " cubic meters per capita";
+
+            div2.html(quote2)
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY - 15) + "px");
+        })
+        .on('mouseout', function (d, i) {
+            d3.select(this).transition()
+                .duration('100')
+                .attr('fill', '#9AB9D5')
+                .style('transform', "scale(1.0, 1.0)")
+
+            div2.transition()
+                .duration('100')
+                .style('opacity', 0)
+        })
+
 };
 
 d3.csv('./src/data2.csv').then(data => {
     data.forEach(d => {
         d.water = +d.water;
     });
-    // console.log(data)
 
     render2(data);
-
-    d3.selectAll('.bar2')
-        .style('fill', '#9AB9D5')
 })
