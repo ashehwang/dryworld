@@ -25,3 +25,8 @@ Graphs compare different actions and its environmental impact.
 
 Graph on the right is dynamically altered depending on the actions you chose.
 
+
+<img src="https://i.ibb.co/CQS59cm/Screen-Shot-2020-08-11-at-12-23-39-PM.png" alt="Screen-Shot-2020-08-11-at-12-23-39-PM" border="0">
+
+
+All maps/bar graphs/pie graphs were rendered utilizing D3.
