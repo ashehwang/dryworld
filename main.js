@@ -215,16 +215,11 @@ d3.csv('./src/data.csv').then(function (data) {
       var target = document.querySelector('.water-bars');
       target.innerHTML = "";
       render(data, selector);
-      d3.selectAll('rect').transition().duration(2000).style('fill', '#9AB9D5').style('opacity', 0.8); // .style('fill', 'url(#gradient)')
-
-      var myID = document.getElementById("".concat(highlight));
-      console.log(myID); // if(node.id === "egg")
-
+      d3.selectAll('rect.bar').transition().duration(2000).style('fill', '#9AB9D5').style('opacity', 0.8);
       d3.select("rect#".concat(highlight)).transition().duration(2000).style('fill', 'red').style('opacity', 0.8);
     });
   });
-  var svg3 = d3.select('svg.pie'); // .style("background-color", "pink")
-
+  var svg3 = d3.select('svg.pie');
   var div = d3.select('body').append("div").attr("class", "tooltip-donut").style("opacity", 0);
   var details = [{
     water: "Earth Covered With Land",
@@ -238,10 +233,8 @@ d3.csv('./src/data.csv').then(function (data) {
   }, {
     water: "Fresh Water for Us to Use",
     number: 0.4
-  }]; // const pieColors = d3.scaleOrdinal(d3.schemePastel1)
-
-  var mypieColorScale = d3.scaleOrdinal().domain([30, 68, 0.4, 1.6]).range(['#F6F4F5', '#cfddec', 'blue', '#a5c0db']); // .range(['#ebf1f7', '#cfddec', '#5185b9', '#a5c0db'])
-  // const width3 = +svg3.attr("width");
+  }];
+  var mypieColorScale = d3.scaleOrdinal().domain([30, 68, 0.4, 1.6]).range(['#F6F4F5', '#cfddec', 'blue', '#a5c0db']); // const width3 = +svg3.attr("width");
   // const height3 = +svg3.attr("height");
 
   var data3 = d3.pie().sort(null).value(function (d) {
@@ -315,10 +308,8 @@ var render2 = function render2(data) {
     return yScale(d.water);
   }).attr('width', xScale.bandwidth()).attr('height', function (d) {
     return innerHeight - yScale(d.water);
-  }).attr('fill', '#9AB9D5').on('mouseover', function (d, i) {
-    d3.select(this).transition().duration('1000').attr('fill', 'red'); // .style('transform', 'scale(1.01, 1.0)')
-    // .style('transform-origin', "50% 0%")
-
+  }).attr('fill', '#9AB9D5').attr('opacity', 0.8).on('mouseover', function (d, i) {
+    d3.select(this).transition().duration('1000').attr('fill', 'red').style('transform', 'scale(1.01, 1.01)').style('transform-origin', "center, top");
     div2.transition().duration('1000').style('opacity', 1);
     var quote2 = d.country + ": " + d.water + " cubic meters per capita";
     div2.html(quote2).style("left", d3.event.pageX + "px").style("top", d3.event.pageY - 15 + "px");

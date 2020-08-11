@@ -131,16 +131,13 @@ d3.csv('./src/data.csv').then(data => {
         let target = document.querySelector('.water-bars')
         target.innerHTML = ""
         render(data, selector)
-        d3.selectAll('rect')
+        d3.selectAll('rect.bar')
             .transition()
             .duration(2000)
             .style('fill', '#9AB9D5')
             .style('opacity', 0.8)
-            // .style('fill', 'url(#gradient)')
-        
-        let myID = document.getElementById(`${highlight}`);
-        console.log(myID)
-        // if(node.id === "egg")
+    
+
         d3.select(`rect#${highlight}`)
             .transition()
             .duration(2000)
@@ -149,17 +146,16 @@ d3.csv('./src/data.csv').then(data => {
     }));
 
     const svg3 = d3.select('svg.pie')
-                    // .style("background-color", "pink")
+
     var div = d3.select('body').append("div")
         .attr("class", "tooltip-donut")
         .style("opacity", 0);
     
     const details = [{ water: "Earth Covered With Land", number: 30 }, { water: "Earth Covered With Salt Water", number: 68 }, { water: "Water Locked in Glaciers", number: 1.6 }, { water: "Fresh Water for Us to Use", number: 0.4 }]
-    // const pieColors = d3.scaleOrdinal(d3.schemePastel1)
+
     const mypieColorScale = d3.scaleOrdinal()
         .domain([30, 68, 0.4, 1.6])
         .range(['#F6F4F5', '#cfddec', 'blue', '#a5c0db'])
-        // .range(['#ebf1f7', '#cfddec', '#5185b9', '#a5c0db'])
 
     // const width3 = +svg3.attr("width");
     // const height3 = +svg3.attr("height");
@@ -262,12 +258,13 @@ const render2 = (data) => {
         .attr('width', xScale.bandwidth())
         .attr('height', d => innerHeight - yScale(d.water))
         .attr('fill', '#9AB9D5')
+        .attr('opacity', 0.8)
         .on('mouseover', function (d, i) {
             d3.select(this).transition()
                 .duration('1000')
                 .attr('fill', 'red')
-                // .style('transform', 'scale(1.01, 1.0)')
-                // .style('transform-origin', "50% 0%")
+                .style('transform', 'scale(1.01, 1.01)')
+                .style('transform-origin', "center, top")
 
             div2.transition()
                 .duration('1000')
