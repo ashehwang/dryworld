@@ -1,7 +1,7 @@
 const svg = d3.select("svg.dry-map");
 
-// const projection = d3.geoNaturalEarth1();
-const projection = d3.geoEckert4();
+const projection = d3.geoNaturalEarth1();
+// const projection = d3.geoEckert4();
 const pathGenerator = d3.geoPath().projection(projection)
 
 const g = svg.append('g')
@@ -55,8 +55,10 @@ Promise.all([
 
 const svg2 = d3.select('svg.water-bars')
 
-const width = +svg2.attr("width");
-const height = +svg2.attr("height");
+// const width = +svg2.attr("width");
+const width = 550;
+const height = 500;
+// const height = +svg2.attr("height");
 
 const render = (data, filter) => {
     const margin = { top: 20, right: 20, bottom: 20, left: 80 };
@@ -65,7 +67,7 @@ const render = (data, filter) => {
     const yValue = d => d.water;
     const xValue = d => d.action;
 
-    const filteredData = data.filter( d => d.filter === filter)
+    const filteredData = data.filter( d => d.filter === filter);
 
     const xScale = d3.scaleBand()
         // .domain(data.filter( d => d.filter === filter).map(xValue))
@@ -85,7 +87,7 @@ const render = (data, filter) => {
     const g = svg2.append('g')
         .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-    g.append('g').call(d3.axisLeft(yScale))
+    g.append('g').call(d3.axisLeft(yScale));
     // .tickSize(10)
     // .tickFormat('.3s')
     // .select('.domain')
@@ -142,8 +144,8 @@ d3.csv('./src/data.csv').then(data => {
         .range(['#F6F4F5', '#cfddec', 'blue', '#a5c0db'])
         // .range(['#ebf1f7', '#cfddec', '#5185b9', '#a5c0db'])
 
-    const width3 = +svg3.attr("width");
-    const height3 = +svg3.attr("height");
+    // const width3 = +svg3.attr("width");
+    // const height3 = +svg3.attr("height");
 
     const data3 = d3.pie().sort(null).value(function(d){return d.number;})(details);
     // console.log(data3)
@@ -165,18 +167,21 @@ d3.csv('./src/data.csv').then(data => {
     var legends = svg3.append('g').attr('transform', 'translate(500, 300)')
                     .selectAll(".legends").data(data3);
     var legend = legends.enter().append('g').classed("legends", true).attr("transform", function(d,i){return "translate(0," +(i+1)*30 + ")";});
-    legend.append("rect").attr("width", 20).attr("height", 20).attr("fill", function(d){return colors3(d.data.number);});
+    legend.append("rect").attr("width", 20).attr("height", 20).attr("fill", function (d) { return mypieColorScale(d.data.number);});
+    // legend.append("rect").attr("width", 20).attr("height", 20).attr("fill", function(d){return colors3(d.data.number);});
     legend.append("text").classed("label", true).text(function(d){
         return d.data.water
-    }).attr("fill", function(d){return colors3(d.data.number);})
+    }).attr("fill", function (d) { return mypieColorScale(d.data.number);})
         .attr("x", 30)
         .attr("y", 20);
 });
 
 const svg4 = d3.select('svg.waterwater');
 
-const width4 = +svg4.attr("width");
-const height4 = +svg4.attr("height");
+// const width4 = +svg4.attr("width");
+const width4 = 1160;
+const height4 = 500;
+// const height4 = +svg4.attr("height");
 
 const render2 = (data) => {
     const margin4 = { top: 20, right: 20, bottom: 20, left: 80 };
@@ -216,7 +221,7 @@ d3.csv('./src/data2.csv').then(data => {
     data.forEach(d => {
         d.water = +d.water;
     });
-    console.log(data)
+    // console.log(data)
 
     render2(data);
 

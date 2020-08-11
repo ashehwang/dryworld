@@ -227,3 +227,13 @@ h3, h4 {
     right: 7%;
     font-size: 12px;
 }
+
+footer {
+    color: lightgrey;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+}
+a:visited, a {
+    color: lightblue;
+}

@@ -105,9 +105,9 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var svg = d3.select("svg.dry-map"); // const projection = d3.geoNaturalEarth1();
+var svg = d3.select("svg.dry-map");
+var projection = d3.geoNaturalEarth1(); // const projection = d3.geoEckert4();
 
-var projection = d3.geoEckert4();
 var pathGenerator = d3.geoPath().projection(projection);
 var g = svg.append('g');
 g.append('path').attr('class', 'sphere'); // .attr('d', pathGenerator({type: 'Sphere'}))
@@ -144,9 +144,10 @@ Promise.all([d3.tsv('./src/fullwaterdata.tsv'), d3.json('https://unpkg.com/world
     return d.properties.name + ': ' + colorValue(d) + ' Risk';
   });
 });
-var svg2 = d3.select('svg.water-bars');
-var width = +svg2.attr("width");
-var height = +svg2.attr("height");
+var svg2 = d3.select('svg.water-bars'); // const width = +svg2.attr("width");
+
+var width = 550;
+var height = 500; // const height = +svg2.attr("height");
 
 var render = function render(data, filter) {
   var margin = {
@@ -231,9 +232,9 @@ d3.csv('./src/data.csv').then(function (data) {
   }]; // const pieColors = d3.scaleOrdinal(d3.schemePastel1)
 
   var mypieColorScale = d3.scaleOrdinal().domain([30, 68, 0.4, 1.6]).range(['#F6F4F5', '#cfddec', 'blue', '#a5c0db']); // .range(['#ebf1f7', '#cfddec', '#5185b9', '#a5c0db'])
+  // const width3 = +svg3.attr("width");
+  // const height3 = +svg3.attr("height");
 
-  var width3 = +svg3.attr("width");
-  var height3 = +svg3.attr("height");
   var data3 = d3.pie().sort(null).value(function (d) {
     return d.number;
   })(details); // console.log(data3)
@@ -253,17 +254,19 @@ d3.csv('./src/data.csv').then(function (data) {
     return "translate(0," + (i + 1) * 30 + ")";
   });
   legend.append("rect").attr("width", 20).attr("height", 20).attr("fill", function (d) {
-    return colors3(d.data.number);
-  });
+    return mypieColorScale(d.data.number);
+  }); // legend.append("rect").attr("width", 20).attr("height", 20).attr("fill", function(d){return colors3(d.data.number);});
+
   legend.append("text").classed("label", true).text(function (d) {
     return d.data.water;
   }).attr("fill", function (d) {
-    return colors3(d.data.number);
+    return mypieColorScale(d.data.number);
   }).attr("x", 30).attr("y", 20);
 });
-var svg4 = d3.select('svg.waterwater');
-var width4 = +svg4.attr("width");
-var height4 = +svg4.attr("height");
+var svg4 = d3.select('svg.waterwater'); // const width4 = +svg4.attr("width");
+
+var width4 = 1160;
+var height4 = 500; // const height4 = +svg4.attr("height");
 
 var render2 = function render2(data) {
   var margin4 = {
@@ -300,8 +303,8 @@ var render2 = function render2(data) {
 d3.csv('./src/data2.csv').then(function (data) {
   data.forEach(function (d) {
     d.water = +d.water;
-  });
-  console.log(data);
+  }); // console.log(data)
+
   render2(data);
   d3.selectAll('.bar2').style('fill', '#9AB9D5');
 });
